@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name            = "XHPopMenu"
-  s.version         = "1.1.0"
+  s.version         = "1.1.1"
   s.summary         = "A menu like a pop view."
   s.description     = <<-DESC
 			It is a menu view used on iOS, which implement by Objective-C.
