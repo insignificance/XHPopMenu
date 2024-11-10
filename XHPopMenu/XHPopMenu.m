@@ -146,12 +146,7 @@ static const CGFloat kXHDefaultAnimateDuration = 0.15;
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    
-    CGFloat yMargin = 1;
-    CGFloat xMargin = 2;
-    CGFloat insetH = CGRectGetHeight(self.lineView.frame);
-    CGFloat selectH = CGRectGetHeight(self.bounds) - insetH - yMargin * 2;
-    self.selectedBackgroundView.frame = CGRectMake(xMargin, yMargin, CGRectGetWidth(self.bounds) - xMargin * 2, selectH);
+    cell.selectedBackgroundView = [[UIView alloc]initWithFrame:cell.frame];
 }
 
 - (void)setInfo:(XHPopMenuItem *)item configuration:(XHPopMenuConfiguration *)configuration {
