@@ -99,6 +99,8 @@ static const CGFloat kXHDefaultAnimateDuration = 0.15;
 @property (nonatomic, strong) UIView *lineView;
 @property (nonatomic, strong) UIImageView *iconImageView;
 @property (nonatomic, strong) UILabel *titleLabel;
+@property (nonatomic, strong) UIView *rightView;
+@property (nonatomic, strong) UIView *sectionView;
 
 + (instancetype)cellWithTableView:(UITableView *)tableView;
 
@@ -121,11 +123,14 @@ static const CGFloat kXHDefaultAnimateDuration = 0.15;
         cell.iconImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
         cell.titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         cell.lineView = [[UILabel alloc] initWithFrame:CGRectZero];
+        cell.rightView = [[UIView alloc] initWithFrame:CGRectZero];
+        cell.sectionView = [[UIView alloc] initWithFrame:CGRectZero];
         
         [cell.contentView addSubview:cell.iconImageView];
         [cell.contentView addSubview:cell.titleLabel];
         [cell.contentView addSubview:cell.lineView];
-        
+        [cell.contentView addSubview:cell.rightView];
+        [cell.contentView addSubview:cell.sectionView];
         cell.selectedBackgroundView = [[UIView alloc]initWithFrame:cell.frame];
         cell.selectedBackgroundView.layer.cornerRadius = 2;
         
@@ -183,6 +188,28 @@ static const CGFloat kXHDefaultAnimateDuration = 0.15;
         self.iconImageView.hidden = true;
         self.titleLabel.frame = CGRectMake(left, top, itemW, itemH);
     }
+    if(item.rightView) {
+        self.rightView.hidden = false;
+        CGSize rightViewSize = item.rightView.frame.size;
+        self.rightView.frame = CGRectMake(itemW, 0.5 * (height - rightViewSize.height), item.rightView.frame.size.width, item.rightView.frame.size.height);
+        [self.rightView addSubview:item.rightView];
+    } else {
+        self.rightView.hidden = true;
+    }
+
+    if (item.sectionView) {
+        self.sectionView.hidden = false;
+        CGFloat insetL = configuration.separatorInsetLeft;
+        CGFloat insetR = configuration.separatorInsetRight;
+        CGFloat insetH = configuration.separatorHeight;
+        CGSize rightViewSize = item.sectionView.frame.size;
+        CGRect frame =  CGRectMake((width - rightViewSize.width) * 0.5, height - insetH, width, rightViewSize.height);
+        self.sectionView.frame = frame;
+        [self.sectionView addSubview:item.sectionView];
+    } else {
+        self.sectionView.hidden = true;
+    }
+    
     
     self.titleLabel.text = item.title;
     self.titleLabel.font = item.titleFont;
