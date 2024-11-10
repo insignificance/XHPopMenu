@@ -119,6 +119,10 @@ typedef NS_ENUM(NSUInteger, XHPopMenuAnimationStyle) {
 @property (nonatomic, strong, nullable) UIColor *titleColor; ///< menuItem字体颜色 优先级大于Configuration的设置
 @property (nonatomic, strong, nullable) UIFont *titleFont; ///< menuItem字体 优先级大于Configuration的设置
 @property (nonatomic, strong, nullable) UIImage *image;
+/// 选中状态右侧rightView
+@property (nonatomic, strong) UIView *rightView;
+/// 不一样风格的分割view
+@property (nonatomic, strong) UIView *sectionView;
 @property (nonatomic, assign, nullable, readonly) SEL action;
 @property (nonatomic,   weak, nullable, readonly) id target;
 @property (nonatomic,   copy, nullable, readonly) XHPopMenuItemAction block;
