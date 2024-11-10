@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   s.license         = "MIT"
   s.author          = { "chengxianghe" => "chengxianghe@outlook.com" }
   s.platform        = :ios, "8.0"
-  s.source          = { :git => "https://github.com/chengxianghe/XHPopMenu.git", :tag => s.version }
+  s.source          = { :git => "https://github.com/insignificance/XHPopMenu.git", :tag => s.version }
   s.source_files    = "XHPopMenu/*"
   s.frameworks      = 'Foundation', 'UIKit'
   s.requires_arc    = true
